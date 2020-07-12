@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="vm"
+            type="com.example.getyourguide.ui.userrating.viewmodel.UserReviewViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/dateText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@{vm.date}"
+            android:textColor="@color/charcoal_grey"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Date" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@{vm.enjoyment}"
+            android:textColor="@color/charcoal_grey"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dateText"
+            app:visibility="@{vm.enjoyment.length() &gt;0}"
+            tools:text="Architecture of the building, its magificence, especially the tall cielings" />
+
+
+        <RatingBar
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:id="@+id/rating"
+            android:progressTint="#FFC107"
+            app:layout_constraintStart_toStartOf="@id/dateText"
+            app:rating="@{vm.rating}"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            android:stepSize="1" />
+
+
+        <TextView
+            android:id="@+id/message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@{vm.message}"
+            android:textColor="@color/charcoal_grey"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@id/dateText"
+            app:layout_constraintStart_toStartOf="@id/dateText"
+            app:layout_constraintTop_toBottomOf="@id/rating"
+            app:visibility="@{vm.message.length() &gt;0}"
+            tools:text="It was really interesting, a lot of cool information were told but I expected to see more of the restricted areas of the airport - security rooms etc." />
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintStart_toStartOf="@id/dateText"
+            app:layout_constraintTop_toBottomOf="@id/message"
+            android:layout_marginTop="16dp"
+            app:image_url="@{vm.imageUrl}"/>
+
+        <TextView
+            android:id="@+id/reviwed_by"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="sans-serif"
+            android:text="reviewed by"
+            android:textColor="@color/charcoal_grey"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@id/dateText"
+            app:layout_constraintStart_toEndOf="@id/avatar"
+            app:layout_constraintTop_toTopOf="@id/avatar" />
+
+        <TextView
+            android:id="@+id/user_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@{vm.userInfo}"
+            android:textColor="@color/charcoal_grey"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@id/dateText"
+            app:layout_constraintStart_toEndOf="@id/avatar"
+            app:layout_constraintTop_toBottomOf="@id/reviwed_by"
+            tools:text="Anonymous - United Kingdom" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/charcoal_grey_light"
+            app:layout_constraintTop_toBottomOf="@id/user_info"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="16dp"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</layout>
