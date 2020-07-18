@@ -78,8 +78,6 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
-
         </androidx.appcompat.widget.Toolbar>
 
         <androidx.recyclerview.widget.RecyclerView
