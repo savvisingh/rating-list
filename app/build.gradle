@@ -45,7 +45,7 @@ android {
 
 dependencies {
 
-    def lifecycle_version = "2.2.0"
+    def lifecycle_version = "2.3.0"
     def dagger_version = "2.27"
     def arch_version = "2.1.0"
 
